@@ -33,7 +33,7 @@ const projects = [
 function Projects() {
     return (
         <section className="projects">
-            <div className="projects__header">
+            <div className="projects__header fade-up">
                 <p className="projects__eyebrow">Mis trabajos</p>
                 <h1 className="projects__title">Proyectos</h1>
                 <p className="projects__intro">
@@ -42,7 +42,7 @@ function Projects() {
                 </p>
             </div>
 
-            <div className="projects__grid">
+            <div className="projects__grid fade-up fade-up--delay-1">
                 {projects.map((project) => (
                     <article key={project.title} className="project-card">
                         <div className="project-card__top">

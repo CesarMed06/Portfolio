@@ -1,3 +1,4 @@
+
 import './Career.css'
 
 const timelineItems = [
@@ -26,7 +27,7 @@ const timelineItems = [
 function Career() {
     return (
         <section className="career">
-            <div className="career__header">
+            <div className="career__header fade-up">
                 <p className="career__eyebrow">Mi recorrido</p>
                 <h1 className="career__title">Trayectoria</h1>
                 <p className="career__intro">
@@ -35,12 +36,12 @@ function Career() {
                 </p>
             </div>
 
-            <div className="career__legend">
+            <div className="career__legend fade-up fade-up--delay-1">
                 <span className="career__badge career__badge--study">Formación</span>
                 <span className="career__badge career__badge--work">Experiencia</span>
             </div>
 
-            <div className="timeline">
+            <div className="timeline fade-up fade-up--delay-2">
                 {timelineItems.map((item, index) => (
                     <article
                         key={index}

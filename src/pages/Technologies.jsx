@@ -56,7 +56,7 @@ const CUSTOM_ICONS = {
 function Technologies() {
     return (
         <section className="technologies">
-            <div className="technologies__header">
+            <div className="technologies__header fade-up">
                 <p className="technologies__eyebrow">Mi stack</p>
                 <h1 className="technologies__title">Tecnologías</h1>
                 <p className="technologies__intro">
@@ -64,8 +64,12 @@ function Technologies() {
                 </p>
             </div>
 
-            {categories.map((category) => (
-                <div key={category.name} className="tech-category">
+            {categories.map((category, index) => (
+                <div
+                    key={category.name}
+                    className="tech-category fade-up"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                >
                     <h2 className="tech-category__name">{category.name}</h2>
                     <div className="tech-grid">
                         {category.items.map((item) => {
