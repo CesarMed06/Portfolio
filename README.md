@@ -1,16 +1,31 @@
-# React + Vite
+# Portfolio — César Medina Gago
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio personal desarrollado con React y Vite. Recoge mi formación, experiencia, proyectos y stack técnico en una SPA con enrutado del lado del cliente y diseño responsive en dark theme.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite)
+![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter)
+![CSS3](https://img.shields.io/badge/CSS3-propio-1572B6?logo=css3)
+![Vitest](https://img.shields.io/badge/Vitest-testing-6E9F18?logo=vitest)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Páginas
 
-## React Compiler
+- **Inicio** — presentación personal con links a GitHub, LinkedIn y contacto.
+- **Trayectoria** — timeline con formación y experiencia profesional.
+- **Proyectos** — tarjetas con los proyectos desarrollados, tecnologías usadas y links a GitHub y demo.
+- **Tecnologías** — stack técnico organizado por categorías: lenguajes, frameworks, bases de datos y herramientas.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Cómo arrancarlo
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tests
+
+```bash
+npm test
+```
+
+**Autor:** César Medina Gago · 2º DAW · CEI Sevilla · 2026
