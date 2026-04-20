@@ -54,14 +54,14 @@ function Home() {
                         GitHub
                     </a>
                     <a
-                        href="https://linkedin.com/"
+                        href="https://www.linkedin.com/in/c%C3%A9sar-medina-gago/"
                         target="_blank"
                         rel="noreferrer"
                         className="home__button home__button--secondary"
                     >
                         LinkedIn
                     </a>
-                    <a href="mailto:tuemail@example.com" className="home__button home__button--ghost">
+                    <a href="https://mail.google.com/mail/?view=cm&to=cmedgag@gmail.com" target="_blank" rel="noreferrer" className="home__button home__button--ghost">
                         Contacto
                     </a>
                 </div>
