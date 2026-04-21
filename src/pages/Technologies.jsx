@@ -9,7 +9,7 @@ const categories = [
             { name: 'JavaScript', icon: 'javascript' },
             { name: 'Python', icon: 'python' },
             { name: 'Java', icon: 'java-custom' },
-            { name: 'XML', icon: 'xml' },
+            { name: 'XML', icon: 'xml', size: 48},
         ],
     },
     {
@@ -39,7 +39,7 @@ const categories = [
             { name: 'Figma', icon: 'figma' },
             { name: 'VS Code', icon: 'vscode-custom' },
             { name: 'VirtualBox', icon: 'virtualbox' },
-            { name: 'VMware', icon: 'vmware' },
+            { name: 'VMware', icon: 'vmware', size: 48 },
         ],
     },
 ]
@@ -86,8 +86,8 @@ function Technologies() {
                                     <img
                                         src={src}
                                         alt={item.name}
-                                        width={36}
-                                        height={36}
+                                        width={item.size ?? 36}
+                                        height={item.size ?? 36}
                                         loading="lazy"
                                     />
                                     <span>{item.name}</span>

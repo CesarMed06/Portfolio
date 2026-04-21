@@ -3,6 +3,14 @@ import './Career.css'
 
 const timelineItems = [
     {
+        period: '02/03/2026 - 18/06/2026',
+        type: 'Experiencia',
+        title: 'Prácticas en Desarrollo Web',
+        place: 'Original Merchandising · Bilbao',
+        description:
+            'Prácticas de empresa centradas en el mantenimiento y actualización de la web corporativa con WordPress, búsqueda y gestión de datos de empresas con Excel, y soporte general en tareas de administración web.',
+    },
+    {
         period: '2024 - Actualidad',
         type: 'Formación',
         title: 'Desarrollo de Aplicaciones Web',
