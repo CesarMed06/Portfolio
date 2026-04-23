@@ -55,7 +55,7 @@ function Home() {
 
                 <div className="home__stats">
                     <div className="home__stat">
-                        <span className="home__stat-num">3+</span>
+                        <span className="home__stat-num">3</span>
                         <span className="home__stat-label">Proyectos</span>
                     </div>
                     <div className="home__stat-divider" />
@@ -65,7 +65,7 @@ function Home() {
                     </div>
                     <div className="home__stat-divider" />
                     <div className="home__stat">
-                        <span className="home__stat-num">10+</span>
+                        <span className="home__stat-num">+10</span>
                         <span className="home__stat-label">Tecnologías</span>
                     </div>
                 </div>
