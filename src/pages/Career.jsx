@@ -1,14 +1,14 @@
-
 import './Career.css'
 
 const timelineItems = [
     {
         period: '02/03/2026 - 18/06/2026',
         type: 'Experiencia',
-        title: 'Prácticas en Desarrollo Web',
-        place: 'Original Merchandising · Bilbao',
+        title: 'Desarrollador Web Full Stack · Prácticas',
+        place: 'Original Merchandising · Remoto',
+        context: 'Original Merchandising',
         description:
-            'Prácticas de empresa centradas en el mantenimiento y actualización de la web corporativa con WordPress, búsqueda y gestión de datos de empresas con Excel, y soporte general en tareas de administración web.',
+            'Desarrollo web en entorno cliente con JavaScript (DOM, eventos, almacenamiento en navegador). Programación server-side e integración de lógica de negocio en el backend. Diseño e implementación de interfaces web con contenido multimedia e interactivo. Despliegue de aplicaciones, control de versiones con Git e integración continua.',
     },
     {
         period: '2024 - Actualidad',

@@ -1,165 +1,208 @@
 .career {
-    padding-bottom: var(--space-5);
+    padding-bottom: 5rem;
 }
 
 .career__header {
-    margin-bottom: var(--space-4);
+    margin-bottom: 2.5rem;
+    padding-top: 1rem;
 }
 
 .career__eyebrow {
     color: var(--color-primary);
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: var(--space-1);
+    margin-bottom: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.career__eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 2px;
 }
 
 .career__title {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    margin-bottom: var(--space-1);
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(140deg, #fff 0%, #f0ece8 40%, var(--color-primary) 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .career__intro {
     color: var(--color-muted);
+    font-size: 1.05rem;
     max-width: 60ch;
+    line-height: 1.7;
 }
 
 .career__legend {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-1);
-    margin-bottom: var(--space-4);
+    gap: 0.5rem;
+    margin-bottom: 3.5rem;
 }
 
 .career__badge {
     display: inline-flex;
     align-items: center;
-    padding: 0.45rem 0.85rem;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
     border-radius: 999px;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 600;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-solid);
     background: var(--color-surface);
+    letter-spacing: 0.04em;
 }
 
-.career__badge--study {
-    color: var(--color-primary);
+.career__badge--study::before,
+.career__badge--work::before {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
 }
 
-.career__badge--work {
-    color: var(--color-text);
-}
+.career__badge--study { color: var(--color-primary); }
+.career__badge--study::before { background: var(--color-primary); }
+.career__badge--work  { color: var(--color-text); }
+.career__badge--work::before  { background: var(--color-muted); }
 
+/* ── TIMELINE ── */
 .timeline {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-2) 0;
+    gap: 2.5rem;
+    padding: 0.5rem 0 1rem;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: var(--color-border);
+    top: 0; bottom: 0; left: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--color-border-solid) 5%, var(--color-border-solid) 95%, transparent);
     transform: translateX(-50%);
 }
 
 .timeline__item {
     position: relative;
-    width: calc(50% - 2rem);
+    width: calc(50% - 2.5rem);
 }
 
-.timeline__item--left {
-    align-self: flex-start;
-}
-
-.timeline__item--right {
-    align-self: flex-end;
-}
+.timeline__item--left  { align-self: flex-start; }
+.timeline__item--right { align-self: flex-end; }
 
 .timeline__dot {
     position: absolute;
-    top: 1.6rem;
-    width: 14px;
-    height: 14px;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
     background: var(--color-primary);
-    border: 3px solid var(--color-bg);
+    border: 2px solid var(--color-bg);
     border-radius: 50%;
     z-index: 2;
+    box-shadow: 0 0 12px var(--color-primary-glow);
 }
 
-.timeline__item--left .timeline__dot {
-    right: -2.45rem;
-}
-
-.timeline__item--right .timeline__dot {
-    left: -2.45rem;
-}
+.timeline__item--left  .timeline__dot { right: -2.95rem; }
+.timeline__item--right .timeline__dot { left: -2.95rem; }
 
 .timeline__card {
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-    padding: var(--space-3);
+    border: 1px solid var(--color-border-solid);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    word-break: normal;
+    overflow-wrap: break-word;
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.timeline__card:hover {
+    border-color: rgba(240,90,26,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px rgba(240,90,26,0.08);
+    transform: translateY(-2px);
 }
 
 .timeline__type {
     display: inline-flex;
-    margin-bottom: var(--space-1);
-    padding: 0.35rem 0.7rem;
+    margin-bottom: 0.75rem;
+    padding: 0.3rem 0.7rem;
     border-radius: 999px;
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .timeline__type--study {
-    background: rgba(79, 140, 255, 0.12);
+    background: rgba(240,90,26,0.1);
     color: var(--color-primary);
+    border: 1px solid rgba(240,90,26,0.2);
 }
 
 .timeline__type--work {
-    background: var(--color-surface-alt);
-    color: var(--color-text);
+    background: rgba(255,255,255,0.05);
+    color: var(--color-muted);
+    border: 1px solid var(--color-border-solid);
 }
 
 .timeline__period {
     color: var(--color-primary);
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
 }
 
 .timeline__card-title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     margin-bottom: 0.35rem;
+    line-height: 1.3;
+    color: var(--color-text);
 }
 
 .timeline__place {
     color: var(--color-muted);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
 }
 
 .timeline__description {
-    color: var(--color-text);
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--color-border-solid);
+    color: var(--color-muted);
+    font-size: 0.875rem;
+    line-height: 1.75;
 }
 
+/* ── MOBILE ── */
 @media (max-width: 768px) {
     .timeline::before {
-        left: 0.4rem;
+        left: 0.5rem;
         transform: none;
     }
 
     .timeline__item {
         width: 100%;
-        padding-left: 2rem;
+        padding-left: 2.25rem;
     }
 
     .timeline__item--right,

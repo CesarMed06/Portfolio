@@ -1,104 +1,83 @@
+import { useRef, useEffect } from 'react'
+import { gsap } from 'gsap'
+import { useLang } from '../context/LangContext'
 import './Technologies.css'
 
-const categories = [
-    {
-        name: 'Lenguajes',
-        items: [
-            { name: 'HTML5', icon: 'html5' },
-            { name: 'CSS3', icon: 'css' },
-            { name: 'JavaScript', icon: 'javascript' },
-            { name: 'Python', icon: 'python' },
-            { name: 'Java', icon: 'java-custom' },
-            { name: 'XML', icon: 'xml', size: 48},
-        ],
-    },
-    {
-        name: 'Frameworks y librerías',
-        items: [
-            { name: 'React', icon: 'react' },
-            { name: 'Django', icon: 'django' },
-            { name: 'Node.js', icon: 'nodedotjs' },
-            { name: 'Express', icon: 'express' },
-            { name: 'Bootstrap', icon: 'bootstrap' },
-        ],
-    },
-    {
-        name: 'Bases de datos',
-        items: [
-            { name: 'MySQL', icon: 'mysql' },
-            { name: 'MongoDB', icon: 'mongodb' },
-            { name: 'SQLite', icon: 'sqlite' },
-        ],
-    },
-    {
-        name: 'Herramientas',
-        items: [
-            { name: 'Git', icon: 'git' },
-            { name: 'GitHub', icon: 'github' },
-            { name: 'Docker', icon: 'docker' },
-            { name: 'Figma', icon: 'figma' },
-            { name: 'VS Code', icon: 'vscode-custom' },
-            { name: 'VirtualBox', icon: 'virtualbox' },
-            { name: 'VMware', icon: 'vmware', size: 48 },
-        ],
-    },
-]
-
-const WHITE_ICONS = ['github', 'express', 'xml']
-
-const CUSTOM_ICONS = {
-    'vscode-custom':
-        'https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg',
-    'java-custom':
-        'https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg',
+const content = {
+  es: { eyebrow: 'Mi stack', title: 'Tecnologías', intro: 'Herramientas y lenguajes con los que trabajo y aprendo cada día.' },
+  en: { eyebrow: 'My stack', title: 'Technologies', intro: 'Tools and languages I work with and learn every day.' },
 }
 
-function Technologies() {
-    return (
-        <section className="technologies">
-            <div className="technologies__header fade-up">
-                <p className="technologies__eyebrow">Mi stack</p>
-                <h1 className="technologies__title">Tecnologías</h1>
-                <p className="technologies__intro">
-                    Tecnologías y herramientas que forman parte de mi formación técnica.
-                </p>
-            </div>
+const categories = [
+  { es: 'Frontend', en: 'Frontend', techs: [
+    { name: 'HTML5', icon: 'https://cdn.simpleicons.org/html5/E34F26' },
+    { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'JavaScript', icon: 'https://cdn.simpleicons.org/javascript/F7DF1E' },
+    { name: 'React', icon: 'https://cdn.simpleicons.org/react/61DAFB' },
+    { name: 'GSAP', icon: 'https://cdn.simpleicons.org/greensock/88CE02' },
+    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
+  ]},
+  { es: 'Backend', en: 'Backend', techs: [
+    { name: 'Node.js', icon: 'https://cdn.simpleicons.org/nodedotjs/339933' },
+    { name: 'Express', icon: 'https://cdn.simpleicons.org/express/ffffff' },
+    { name: 'PHP', icon: 'https://cdn.simpleicons.org/php/777BB4' },
+    { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  ]},
+  { es: 'Base de datos', en: 'Databases', techs: [
+    { name: 'MySQL', icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
+    { name: 'MongoDB', icon: 'https://cdn.simpleicons.org/mongodb/47A248' },
+  ]},
+  { es: 'Herramientas', en: 'Tools', techs: [
+    { name: 'Git', icon: 'https://cdn.simpleicons.org/git/F05032' },
+    { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/ffffff' },
+    { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+    { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
+    { name: 'Postman', icon: 'https://cdn.simpleicons.org/postman/FF6C37' },
+    { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  ]},
+  { es: 'Inteligencia Artificial', en: 'Artificial Intelligence', techs: [
+    { name: 'Gemini API', icon: 'https://cdn.simpleicons.org/googlegemini/8E75B2' },
+    { name: 'OpenAI', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg' },
+    { name: 'Prompt Engineering', icon: 'https://cdn.simpleicons.org/anthropic/D4A27F' },
+  ]},
+]
 
-            {categories.map((category, index) => (
-                <div
-                    key={category.name}
-                    className="tech-category fade-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                    <h2 className="tech-category__name">{category.name}</h2>
-                    <div className="tech-grid">
-                        {category.items.map((item) => {
-                            let src
-                            if (CUSTOM_ICONS[item.icon]) {
-                                src = CUSTOM_ICONS[item.icon]
-                            } else if (WHITE_ICONS.includes(item.icon)) {
-                                src = `https://cdn.simpleicons.org/${item.icon}/white`
-                            } else {
-                                src = `https://cdn.simpleicons.org/${item.icon}`
-                            }
-                            return (
-                                <div key={item.name} className="tech-card">
-                                    <img
-                                        src={src}
-                                        alt={item.name}
-                                        width={item.size ?? 36}
-                                        height={item.size ?? 36}
-                                        loading="lazy"
-                                    />
-                                    <span>{item.name}</span>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
+function Technologies() {
+  const { lang } = useLang()
+  const ref = useRef(null)
+  const tx = content[lang]
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.technologies__header', { opacity: 0, y: 30, duration: 0.7, ease: 'power3.out' })
+      gsap.from('.tech-category', { opacity: 0, y: 30, duration: 0.5, ease: 'power3.out', stagger: 0.1, delay: 0.3 })
+    }, ref)
+    return () => ctx.revert()
+  }, [lang])
+
+  return (
+    <section className="technologies" ref={ref}>
+      <div className="technologies__header">
+        <p className="technologies__eyebrow">{tx.eyebrow}</p>
+        <h1 className="technologies__title">{tx.title}</h1>
+        <p className="technologies__intro">{tx.intro}</p>
+      </div>
+      {categories.map(cat => (
+        <div className="tech-category" key={cat.en}>
+          <p className="tech-category__name">{lang === 'es' ? cat.es : cat.en}</p>
+          <div className="tech-grid">
+            {cat.techs.map(t => (
+              <div className="tech-card" key={t.name}>
+                <img src={t.icon} alt={t.name} width="18" height="18" loading="lazy" />
+                {t.name}
+              </div>
             ))}
-        </section>
-    )
+          </div>
+        </div>
+      ))}
+    </section>
+  )
 }
 
 export default Technologies

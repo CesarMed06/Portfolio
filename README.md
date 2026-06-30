@@ -1,31 +1,39 @@
-# Portfolio — César Medina Gago
+# César Medina — Portfolio Personal
 
-Portafolio personal desarrollado con React y Vite. Recoge mi formación, experiencia, proyectos y stack técnico en una SPA con enrutado del lado del cliente y diseño responsive en dark theme.
+Portfolio web personal desarrollado con **React + Vite**, diseño dark con paleta naranja/rojo fuego y animaciones con **GSAP**.
 
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
-![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite)
-![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter)
-![CSS3](https://img.shields.io/badge/CSS3-propio-1572B6?logo=css3)
-![Vitest](https://img.shields.io/badge/Vitest-testing-6E9F18?logo=vitest)
+## 🚀 Tech Stack
 
-## Páginas
+- **Frontend:** React 18, React Router DOM
+- **Animaciones:** GSAP (GreenSock)
+- **Estilos:** CSS modular con variables custom (sin frameworks CSS)
+- **Build tool:** Vite
+- **Iconos:** SimpleIcons CDN + SVG inline
 
-- **Inicio** — presentación personal con links a GitHub, LinkedIn y contacto.
-- **Trayectoria** — timeline con formación y experiencia profesional.
-- **Proyectos** — tarjetas con los proyectos desarrollados, tecnologías usadas y links a GitHub y demo.
-- **Tecnologías** — stack técnico organizado por categorías: lenguajes, frameworks, bases de datos y herramientas.
+## 📄 Páginas
 
-## Cómo arrancarlo
+| Ruta | Descripción |
+|------|-------------|
+| `/` | Home con hero animado y slider de proyectos destacados |
+| `/trayectoria` | Timeline de experiencia profesional y formación académica |
+| `/proyectos` | Catálogo de proyectos con links a GitHub |
+| `/tecnologias` | Stack completo organizado por categorías |
+
+## 🛠️ Instalación local
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Tests
+## 📦 Build para producción
 
 ```bash
-npm test
+npm run build
+npm run preview
 ```
 
-**Autor:** César Medina Gago · 2º DAW · CEI Sevilla · 2026
+## 👤 Autor
+
+**César Medina** — Estudiante de DAW en CEI Sevilla  
+[LinkedIn](https://linkedin.com/in/césarmedina) · [GitHub](https://github.com/CesarMed06)
