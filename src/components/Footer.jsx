@@ -10,7 +10,7 @@ function Footer() {
         <nav className="footer__links" aria-label="Links redes sociales">
           <a href="https://github.com/CesarMed06" target="_blank" rel="noreferrer" className="footer__link">GitHub</a>
           <a href="https://www.linkedin.com/in/c%C3%A9sar-medina-gago/" target="_blank" rel="noreferrer" className="footer__link">LinkedIn</a>
-          <a href="https://mail.google.com/mail/?view=cm&to=cmedgag@gmail.com" target="_blank" rel="noreferrer" className="footer__link">Email</a>
+          <a href="mailto:cmedgag@gmail.com" className="footer__link">Email</a>
         </nav>
       </div>
     </footer>

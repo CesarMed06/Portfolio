@@ -34,7 +34,6 @@ const categories = [
     { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
     { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
     { name: 'Postman', icon: 'https://cdn.simpleicons.org/postman/FF6C37' },
-    { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
   ]},
   { es: 'Inteligencia Artificial', en: 'Artificial Intelligence', techs: [
     { name: 'Gemini API', icon: 'https://cdn.simpleicons.org/googlegemini/8E75B2' },
@@ -58,6 +57,7 @@ function Technologies() {
 
   return (
     <section className="technologies" ref={ref}>
+      <title>{tx.title} | César Medina</title>
       <div className="technologies__header">
         <p className="technologies__eyebrow">{tx.eyebrow}</p>
         <h1 className="technologies__title">{tx.title}</h1>

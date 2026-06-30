@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { Fragment, useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
 import './Home.css'
@@ -71,6 +71,7 @@ function Home() {
 
   return (
     <section className="home" ref={ref}>
+      <title>César Medina</title>
       <div className="home__glow" aria-hidden="true" />
       <div className="home__glow-2" aria-hidden="true" />
 
@@ -92,13 +93,13 @@ function Home() {
         </div>
         <div className="home__stats">
           {tx.stats.map((s, i) => (
-            <>
-              {i > 0 && <div key={`div-${i}`} className="home__stat-divider" aria-hidden="true" />}
-              <div key={s.label} className="home__stat">
+            <Fragment key={s.label}>
+              {i > 0 && <div className="home__stat-divider" aria-hidden="true" />}
+              <div className="home__stat">
                 <span className="home__stat-num">{s.num}</span>
                 <span className="home__stat-label">{s.label}</span>
               </div>
-            </>
+            </Fragment>
           ))}
         </div>
       </div>

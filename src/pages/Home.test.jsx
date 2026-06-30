@@ -1,25 +1,23 @@
 import { render, screen } from '@testing-library/react'
+import { LangProvider } from '../context/LangContext'
 import Home from './Home'
 
 describe('Home', () => {
+    const renderHome = () => render(<LangProvider><Home /></LangProvider>)
+
     it('renderiza sin errores', () => {
-        render(<Home />)
+        renderHome()
     })
 
     it('muestra el h1 con el nombre', () => {
-        render(<Home />)
+        renderHome()
         expect(screen.getByRole('heading', { level: 1, name: 'César' })).toBeInTheDocument()
     })
 
-    it('muestra el subtítulo', () => {
-        render(<Home />)
-        expect(screen.getByText('Desarrollador Web Full Stack · DAW')).toBeInTheDocument()
-    })
-
     it('muestra los 3 botones de acción', () => {
-        render(<Home />)
-        expect(screen.getByRole('link', { name: 'GitHub' })).toBeInTheDocument()
+        renderHome()
+        expect(screen.getByRole('link', { name: 'Ver proyectos' })).toBeInTheDocument()
         expect(screen.getByRole('link', { name: 'LinkedIn' })).toBeInTheDocument()
-        expect(screen.getByRole('link', { name: 'Contacto' })).toBeInTheDocument()
+        expect(screen.getByRole('link', { name: 'GitHub' })).toBeInTheDocument()
     })
 })

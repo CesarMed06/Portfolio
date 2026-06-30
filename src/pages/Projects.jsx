@@ -47,6 +47,7 @@ function Projects() {
 
   return (
     <section className="projects" ref={ref}>
+      <title>{tx.title} | César Medina</title>
       <div className="page-header">
         <p className="page-eyebrow">{tx.eyebrow}</p>
         <h1 className="page-title">{tx.title}</h1>

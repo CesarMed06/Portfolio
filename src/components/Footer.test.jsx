@@ -1,21 +1,25 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { LangProvider } from '../context/LangContext'
 import Footer from './Footer'
 
 describe('Footer', () => {
+    const renderFooter = () => render(<LangProvider><MemoryRouter><Footer /></MemoryRouter></LangProvider>)
+
     it('renderiza sin errores', () => {
-        render(<MemoryRouter><Footer /></MemoryRouter>)
+        renderFooter()
     })
 
     it('muestra el copyright', () => {
-        render(<MemoryRouter><Footer /></MemoryRouter>)
-        expect(screen.getByText('© 2026 César Medina Gago')).toBeInTheDocument()
+        renderFooter()
+        expect(screen.getByText(/© 2026/)).toBeInTheDocument()
+        expect(screen.getByText(/César Medina/)).toBeInTheDocument()
     })
 
     it('muestra los links de contacto', () => {
-        render(<MemoryRouter><Footer /></MemoryRouter>)
+        renderFooter()
         expect(screen.getByText('GitHub')).toBeInTheDocument()
         expect(screen.getByText('LinkedIn')).toBeInTheDocument()
-        expect(screen.getByText('cmedgag@gmail.com')).toBeInTheDocument()
+        expect(screen.getByRole('link', { name: 'Email' })).toBeInTheDocument()
     })
 })

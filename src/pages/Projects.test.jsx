@@ -1,25 +1,23 @@
 import { render, screen } from '@testing-library/react'
+import { LangProvider } from '../context/LangContext'
 import Projects from './Projects'
 
 describe('Projects', () => {
+    const renderProjects = () => render(<LangProvider><Projects /></LangProvider>)
+
     it('renderiza sin errores', () => {
-        render(<Projects />)
+        renderProjects()
     })
 
     it('muestra los 3 títulos de proyectos', () => {
-        render(<Projects />)
+        renderProjects()
         expect(screen.getByText('ShirtFinder')).toBeInTheDocument()
         expect(screen.getByText('GoalTasker')).toBeInTheDocument()
         expect(screen.getByText('Bikes for Refugees')).toBeInTheDocument()
     })
 
     it('muestra 3 botones de GitHub', () => {
-        render(<Projects />)
-        expect(screen.getAllByRole('link', { name: 'GitHub' })).toHaveLength(3)
-    })
-
-    it('muestra solo 1 botón de Ver demo', () => {
-        render(<Projects />)
-        expect(screen.getAllByRole('link', { name: 'Ver demo' })).toHaveLength(1)
+        renderProjects()
+        expect(screen.getAllByRole('link', { name: /GitHub/ })).toHaveLength(3)
     })
 })

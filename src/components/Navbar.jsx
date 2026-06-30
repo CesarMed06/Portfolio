@@ -39,10 +39,8 @@ function Navbar() {
   return (
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar__container">
-        <NavLink to="/" className="navbar__logo" onClick={close}>César</NavLink>
-
-        <button className={`navbar__toggle${isOpen ? ' is-open' : ''}`}
-          onClick={() => setIsOpen(o => !o)} aria-label="Abrir menú" aria-expanded={isOpen}>
+        <NavLink to="/" className="navbar__logo" onClick={close}>César</NavLink>          <button className={`navbar__toggle${isOpen ? ' is-open' : ''}`}
+          onClick={() => setIsOpen(o => !o)} aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={isOpen}>
           <span /><span /><span />
         </button>
 
@@ -58,8 +56,7 @@ function Navbar() {
             <span className="navbar__lang-sep">/</span>
             <span className={`navbar__flag${lang === 'en' ? ' active' : ''}`}><FlagGB /></span>
           </button>
-          <a href="https://mail.google.com/mail/?view=cm&to=cmedgag@gmail.com"
-            target="_blank" rel="noreferrer" className="navbar__cta" onClick={close}>
+          <a href="mailto:cmedgag@gmail.com" className="navbar__cta" onClick={close}>
             {lang === 'es' ? 'Contáctame' : 'Contact me'}
           </a>
         </nav>
