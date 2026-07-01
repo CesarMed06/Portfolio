@@ -90,6 +90,8 @@
   transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
 .slider__btn:hover { background: var(--color-primary-dim); border-color: var(--color-primary); color: var(--color-primary); }
+.slider__btn--primary { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.slider__btn--primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); color: #fff; box-shadow: 0 6px 20px rgba(240,90,26,0.35); transform: translateY(-1px); }
 .slider__controls { display: flex; align-items: center; justify-content: center; gap: 1rem; }
 .slider__arrow {
   width: 40px; height: 40px; border-radius: 50%;

@@ -21,6 +21,7 @@ const projects = [
     image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/GOALTASKER_wgkuzk.png',
     description: { es: 'App de gestión de tareas y objetivos relacionados con el fútbol con seguimiento visual del progreso.', en: 'Football goal & task management app with visual progress tracking.' },
     tags: ['React', 'CSS', 'LocalStorage'],
+    demo: 'https://goal-tasker.vercel.app/',
     github: 'https://github.com/CesarMed06/GoalTasker',
   },
   {
@@ -28,6 +29,7 @@ const projects = [
     image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/BIKES-FOR-REFUGEES_muskbp.png',
     description: { es: 'Réplica visual de la web de Bikes for Refugees Scotland usando solo HTML y CSS.', en: 'Visual replica of the Bikes for Refugees Scotland website using pure HTML and CSS.' },
     tags: ['HTML', 'CSS'],
+    demo: 'https://bikes-for-refugees-six.vercel.app/',
     github: 'https://github.com/CesarMed06/bikes-for-refugees',
   },
 ]
@@ -67,6 +69,7 @@ function Projects() {
                 {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
               </div>
               <div className="project-card__actions">
+                {p.demo && <a href={p.demo} target="_blank" rel="noreferrer" className="project-card__link project-card__link--primary">{tx.demo} ↗</a>}
                 <a href={p.github} target="_blank" rel="noreferrer" className="project-card__link">{tx.github} ↗</a>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { LangProvider } from './context/LangContext'
 import Navbar from './components/Navbar'
+import Cursor from './components/Cursor'
 import Home from './pages/Home'
 import Career from './pages/Career'
 import Projects from './pages/Projects'
@@ -9,6 +10,7 @@ import Technologies from './pages/Technologies'
 function App() {
     return (
         <LangProvider>
+            <Cursor />
             <Navbar />
             <main>
                 <Routes>

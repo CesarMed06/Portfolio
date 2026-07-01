@@ -1,7 +1,9 @@
 import { Fragment, useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useLang } from '../context/LangContext'
 import './Home.css'
+gsap.registerPlugin(ScrollTrigger)
 
 const content = {
   es: {
@@ -16,6 +18,7 @@ const content = {
     stats: [{ num: '3', label: 'Proyectos reales' }, { num: '2', label: 'Años estudiando' }, { num: '100%', label: 'Dedicación' }],
     sliderLabel: 'Proyectos destacados',
     githubBtn: 'GitHub →',
+    demoBtn: 'Demo →',
   },
   en: {
     eyebrow: 'Personal portfolio',
@@ -29,13 +32,14 @@ const content = {
     stats: [{ num: '3', label: 'Real projects' }, { num: '2', label: 'Years studying' }, { num: '100%', label: 'Dedication' }],
     sliderLabel: 'Featured projects',
     githubBtn: 'GitHub →',
+    demoBtn: 'Demo →',
   },
 }
 
 const projects = [
   { title: 'ShirtFinder', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673327/SHIRTFINDER_achfw6.png', description: { es: 'Buscador de camisetas de fútbol con catálogo filtrable, valoraciones, favoritos, foro y chatbot con IA (Gemini).', en: 'Football shirt finder with filterable catalog, ratings, favorites, forum and AI chatbot (Gemini).' }, github: 'https://github.com/CesarMed06/ShirtFinder' },
-  { title: 'GoalTasker', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/GOALTASKER_wgkuzk.png', description: { es: 'App de gestión de tareas y objetivos relacionados con el fútbol con seguimiento visual.', en: 'Football goal & task management app with visual progress tracking.' }, github: 'https://github.com/CesarMed06/GoalTasker' },
-  { title: 'Bikes for Refugees', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/BIKES-FOR-REFUGEES_muskbp.png', description: { es: 'Réplica visual de la web de Bikes for Refugees Scotland usando solo HTML y CSS.', en: 'Visual replica of the Bikes for Refugees Scotland website using pure HTML and CSS.' }, github: 'https://github.com/CesarMed06/bikes-for-refugees' },
+  { title: 'GoalTasker', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/GOALTASKER_wgkuzk.png', description: { es: 'App de gestión de tareas y objetivos relacionados con el fútbol con seguimiento visual.', en: 'Football goal & task management app with visual progress tracking.' }, demo: 'https://goal-tasker.vercel.app/', github: 'https://github.com/CesarMed06/GoalTasker' },
+  { title: 'Bikes for Refugees', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/BIKES-FOR-REFUGEES_muskbp.png', description: { es: 'Réplica visual de la web de Bikes for Refugees Scotland usando solo HTML y CSS.', en: 'Visual replica of the Bikes for Refugees Scotland website using pure HTML and CSS.' }, demo: 'https://bikes-for-refugees-six.vercel.app/', github: 'https://github.com/CesarMed06/bikes-for-refugees' },
 ]
 
 function Home() {
@@ -58,6 +62,23 @@ function Home() {
         .from('.home__actions', { opacity: 0, y: 20, duration: 0.5 }, '-=0.4')
         .from('.home__stats', { opacity: 0, y: 20, duration: 0.5 }, '-=0.35')
         .from('.slider', { opacity: 0, x: 40, duration: 0.8, ease: 'power3.out' }, '-=0.7')
+
+      document.querySelectorAll('.home__stat-num').forEach(el => {
+        const final = el.dataset.num
+        if (!final) return
+        const isPercent = final.endsWith('%')
+        const target = parseFloat(final)
+        const obj = { val: 0 }
+        gsap.to(obj, {
+          val: target,
+          duration: 2.5,
+          ease: 'power2.out',
+          onUpdate() {
+            el.textContent = isPercent ? Math.round(obj.val) + '%' : Math.round(obj.val)
+          },
+          scrollTrigger: { trigger: '.home__stats', start: 'top 75%', toggleActions: 'play none play reset' },
+        })
+      })
     }, ref)
     return () => ctx.revert()
   }, [])
@@ -96,7 +117,7 @@ function Home() {
             <Fragment key={s.label}>
               {i > 0 && <div className="home__stat-divider" aria-hidden="true" />}
               <div className="home__stat">
-                <span className="home__stat-num">{s.num}</span>
+                <span className="home__stat-num" data-num={s.num}>{s.num}</span>
                 <span className="home__stat-label">{s.label}</span>
               </div>
             </Fragment>
@@ -112,6 +133,7 @@ function Home() {
             <div className="slider__body">
               <h2 className="slider__title">{p.title}</h2>
               <p className="slider__description">{p.description[lang]}</p>
+              {p.demo && <a href={p.demo} target="_blank" rel="noreferrer" className="slider__btn slider__btn--primary">{tx.demoBtn}</a>}
               <a href={p.github} target="_blank" rel="noreferrer" className="slider__btn">{tx.githubBtn}</a>
             </div>
           </div>

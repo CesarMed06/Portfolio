@@ -27,7 +27,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['**/*.test.{js,jsx}'],
+    files: ['**/*.test.{js,jsx}', '**/setupTests.js'],
     languageOptions: {
       globals: { ...globals.vitest, ...globals.jest },
     },
