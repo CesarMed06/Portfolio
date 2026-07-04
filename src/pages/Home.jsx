@@ -15,7 +15,7 @@ const content = {
     btn1: 'Ver proyectos',
     btn2: 'LinkedIn',
     btn3: 'GitHub',
-    stats: [{ num: '3', label: 'Proyectos reales' }, { num: '2', label: 'Años estudiando' }, { num: '100%', label: 'Dedicación' }],
+    stats: [{ num: '4', label: 'Proyectos reales' }, { num: '2', label: 'Años estudiando' }, { num: '100%', label: 'Dedicación' }],
     sliderLabel: 'Proyectos destacados',
     githubBtn: 'GitHub →',
     demoBtn: 'Demo →',
@@ -29,7 +29,7 @@ const content = {
     btn1: 'View projects',
     btn2: 'LinkedIn',
     btn3: 'GitHub',
-    stats: [{ num: '3', label: 'Real projects' }, { num: '2', label: 'Years studying' }, { num: '100%', label: 'Dedication' }],
+    stats: [{ num: '4', label: 'Real projects' }, { num: '2', label: 'Years studying' }, { num: '100%', label: 'Dedication' }],
     sliderLabel: 'Featured projects',
     githubBtn: 'GitHub →',
     demoBtn: 'Demo →',
@@ -37,6 +37,7 @@ const content = {
 }
 
 const projects = [
+  { title: 'ScoutVision', image: '/scoutvision-cover-v2.png', description: { es: 'Plataforma de scouting de fútbol con IA: métricas avanzadas, heatmaps, comparación de jugadores e informes con Llama 3.', en: 'AI-powered football scouting platform: advanced metrics, heatmaps, player comparisons and Llama 3 reports.' }, github: 'https://github.com/CesarMed06/ScoutVision' },
   { title: 'ShirtFinder', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673327/SHIRTFINDER_achfw6.png', description: { es: 'Buscador de camisetas de fútbol con catálogo filtrable, valoraciones, favoritos, foro y chatbot con IA (Gemini).', en: 'Football shirt finder with filterable catalog, ratings, favorites, forum and AI chatbot (Gemini).' }, github: 'https://github.com/CesarMed06/ShirtFinder' },
   { title: 'GoalTasker', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/GOALTASKER_wgkuzk.png', description: { es: 'App de gestión de tareas y objetivos relacionados con el fútbol con seguimiento visual.', en: 'Football goal & task management app with visual progress tracking.' }, demo: 'https://goal-tasker.vercel.app/', github: 'https://github.com/CesarMed06/GoalTasker' },
   { title: 'Bikes for Refugees', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/BIKES-FOR-REFUGEES_muskbp.png', description: { es: 'Réplica visual de la web de Bikes for Refugees Scotland usando solo HTML y CSS.', en: 'Visual replica of the Bikes for Refugees Scotland website using pure HTML and CSS.' }, demo: 'https://bikes-for-refugees-six.vercel.app/', github: 'https://github.com/CesarMed06/bikes-for-refugees' },
