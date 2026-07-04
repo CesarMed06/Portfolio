@@ -10,6 +10,13 @@ const content = {
 
 const projects = [
   {
+    title: 'ScoutVision',
+    image: '/scoutvision-cover-v2.png',
+    description: { es: 'Plataforma de scouting de fútbol con IA que analiza datos de StatsBomb: métricas avanzadas, heatmaps, comparación de jugadores e informes con Llama 3.', en: 'AI-powered football scouting platform using StatsBomb data: advanced metrics, heatmaps, player comparisons and Llama 3 reports.' },
+    tags: ['React', 'TypeScript', 'Tailwind', 'FastAPI', 'Python', 'Llama AI'],
+    github: 'https://github.com/CesarMed06/ScoutVision',
+  },
+  {
     title: 'ShirtFinder',
     image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673327/SHIRTFINDER_achfw6.png',
     description: { es: 'Buscador de camisetas de fútbol con catálogo filtrable, valoraciones, favoritos, foro y chatbot con IA (Gemini).', en: 'Football shirt finder with filterable catalog, ratings, favorites, forum and AI chatbot (Gemini).' },
