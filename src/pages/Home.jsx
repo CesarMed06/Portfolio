@@ -1,6 +1,7 @@
 import { Fragment, useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
 import './Home.css'
 gsap.registerPlugin(ScrollTrigger)
@@ -17,6 +18,9 @@ const content = {
     btn3: 'GitHub',
     stats: [{ num: '4', label: 'Proyectos reales' }, { num: '2', label: 'Años estudiando' }, { num: '100%', label: 'Dedicación' }],
     sliderLabel: 'Proyectos destacados',
+    prevLabel: 'Anterior',
+    nextLabel: 'Siguiente',
+    dotLabel: 'Ir al proyecto',
     githubBtn: 'GitHub →',
     demoBtn: 'Demo →',
   },
@@ -31,6 +35,9 @@ const content = {
     btn3: 'GitHub',
     stats: [{ num: '4', label: 'Real projects' }, { num: '2', label: 'Years studying' }, { num: '100%', label: 'Dedication' }],
     sliderLabel: 'Featured projects',
+    prevLabel: 'Previous',
+    nextLabel: 'Next',
+    dotLabel: 'Go to project',
     githubBtn: 'GitHub →',
     demoBtn: 'Demo →',
   },
@@ -109,8 +116,8 @@ function Home() {
         </p>
         <p className="home__description">{tx.desc}</p>
         <div className="home__actions">
-          <a href="/proyectos" className="home__button home__button--primary">{tx.btn1}</a>
-          <a href="https://www.linkedin.com/in/c%C3%A9sar-medina-gagliardi-8804b0291/" target="_blank" rel="noreferrer" className="home__button home__button--secondary">{tx.btn2}</a>
+          <Link to="/proyectos" className="home__button home__button--primary">{tx.btn1}</Link>
+          <a href="https://www.linkedin.com/in/c%C3%A9sar-medina-gago" target="_blank" rel="noreferrer" className="home__button home__button--secondary">{tx.btn2}</a>
           <a href="https://github.com/CesarMed06" target="_blank" rel="noreferrer" className="home__button home__button--ghost">{tx.btn3}</a>
         </div>
         <div className="home__stats">
@@ -129,7 +136,7 @@ function Home() {
       <div className="home__right">
         <div className="slider">
           <p className="slider__label">{tx.sliderLabel}</p>
-          <div className="slider__card" ref={cardRef}>
+          <div className="slider__card" ref={cardRef} aria-live="polite">
             <img src={p.image} alt={p.title} className="slider__image" width="640" height="360" loading="eager" />
             <div className="slider__body">
               <h2 className="slider__title">{p.title}</h2>
@@ -139,14 +146,14 @@ function Home() {
             </div>
           </div>
           <div className="slider__controls">
-            <button className="slider__arrow" onClick={prev} aria-label="Anterior">‹</button>
+            <button className="slider__arrow" onClick={prev} aria-label={tx.prevLabel}>‹</button>
             <div className="slider__dots">
               {projects.map((_, i) => (
                 <button key={i} className={`slider__dot${i === current ? ' active' : ''}`}
-                  onClick={() => setCurrent(i)} aria-label={`Proyecto ${i + 1}`} />
+                  onClick={() => setCurrent(i)} aria-label={`${tx.dotLabel} ${i + 1}`} />
               ))}
             </div>
-            <button className="slider__arrow" onClick={next} aria-label="Siguiente">›</button>
+            <button className="slider__arrow" onClick={next} aria-label={tx.nextLabel}>›</button>
           </div>
         </div>
       </div>

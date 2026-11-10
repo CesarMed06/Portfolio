@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import { LangProvider } from '../context/LangContext'
 import Home from './Home'
 
 describe('Home', () => {
-    const renderHome = () => render(<LangProvider><Home /></LangProvider>)
+    const renderHome = () => render(<LangProvider><MemoryRouter><Home /></MemoryRouter></LangProvider>)
 
     it('renderiza sin errores', () => {
         renderHome()

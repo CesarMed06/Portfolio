@@ -1,18 +1,22 @@
 import { Routes, Route } from 'react-router-dom'
-import { LangProvider } from './context/LangContext'
+import { useLang } from './context/LangContext'
 import Navbar from './components/Navbar'
-import Cursor from './components/Cursor'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import Career from './pages/Career'
 import Projects from './pages/Projects'
 import Technologies from './pages/Technologies'
 
 function App() {
+    const { lang } = useLang()
+
     return (
-        <LangProvider>
-            <Cursor />
+        <>
+            <a href="#main-content" className="skip-link">
+                {lang === 'es' ? 'Saltar al contenido' : 'Skip to content'}
+            </a>
             <Navbar />
-            <main>
+            <main id="main-content">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/trayectoria" element={<Career />} />
@@ -20,7 +24,8 @@ function App() {
                     <Route path="/tecnologias" element={<Technologies />} />
                 </Routes>
             </main>
-        </LangProvider>
+            <Footer />
+        </>
     )
 }
 
