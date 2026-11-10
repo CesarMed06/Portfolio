@@ -29,7 +29,6 @@ Personal web portfolio built with **React + Vite**. Dark design with an orange/f
 ## Features
 
 - 🌍 Bilingual — Spanish / English toggle
-- 🖱️ Custom animated cursor
 - 📱 Fully responsive — mobile first
 - ♿ Accessible — semantic HTML, keyboard navigation, reduced motion support
 - 🔍 SEO ready — meta tags, Open Graph, dynamic page titles, lang attribute
@@ -57,4 +56,4 @@ npm test
 ## Author
 
 **César Medina** — DAW Student at CEI Sevilla  
-[LinkedIn](https://www.linkedin.com/in/c%C3%A9sar-medina-gago/) · [GitHub](https://github.com/CesarMed06)
+[LinkedIn](https://www.linkedin.com/in/c%C3%A9sar-medina-gago) · [GitHub](https://github.com/CesarMed06)
