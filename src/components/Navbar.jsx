@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
 import './Navbar.css'
@@ -23,7 +23,9 @@ const FlagGB = () => (
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const toggleRef = useRef(null)
   const { lang, toggle } = useLang()
+  const es = lang === 'es'
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20)
@@ -31,33 +33,52 @@ function Navbar() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
+  useEffect(() => {
+    if (!isOpen) return
+    const onKey = e => {
+      if (e.key !== 'Escape') return
+      setIsOpen(false)
+      toggleRef.current?.focus()
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [isOpen])
+
   const close = () => setIsOpen(false)
-  const links = lang === 'es'
+  const links = es
     ? [['/', 'Inicio', true], ['/trayectoria', 'Trayectoria'], ['/proyectos', 'Proyectos'], ['/tecnologias', 'Tecnologías']]
     : [['/', 'Home', true], ['/trayectoria', 'Career'], ['/proyectos', 'Projects'], ['/tecnologias', 'Technologies']]
 
   return (
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="navbar__container">
-        <NavLink to="/" className="navbar__logo" onClick={close}>César</NavLink>          <button className={`navbar__toggle${isOpen ? ' is-open' : ''}`}
-          onClick={() => setIsOpen(o => !o)} aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={isOpen}>
+        <NavLink to="/" className="navbar__logo" onClick={close}>César</NavLink>
+
+        <button
+          ref={toggleRef}
+          className={`navbar__toggle${isOpen ? ' is-open' : ''}`}
+          onClick={() => setIsOpen(o => !o)}
+          aria-label={isOpen ? (es ? 'Cerrar menú' : 'Close menu') : (es ? 'Abrir menú' : 'Open menu')}
+          aria-expanded={isOpen}
+          aria-controls="main-nav"
+        >
           <span /><span /><span />
         </button>
 
-        <nav className={`navbar__nav${isOpen ? ' is-open' : ''}`}>
+        <nav id="main-nav" className={`navbar__nav${isOpen ? ' is-open' : ''}`}>
           {links.map(([to, label, end]) => (
             <NavLink key={to} to={to} end={!!end} onClick={close}
               className={({ isActive }) => `navbar__link${isActive ? ' active' : ''}`}>
               {label}
             </NavLink>
           ))}
-          <button className="navbar__lang" onClick={toggle} aria-label="Cambiar idioma">
-            <span className={`navbar__flag${lang === 'es' ? ' active' : ''}`}><FlagES /></span>
+          <button className="navbar__lang" onClick={toggle} aria-label={es ? 'Cambiar idioma' : 'Change language'}>
+            <span className={`navbar__flag${es ? ' active' : ''}`}><FlagES /></span>
             <span className="navbar__lang-sep">/</span>
-            <span className={`navbar__flag${lang === 'en' ? ' active' : ''}`}><FlagGB /></span>
+            <span className={`navbar__flag${!es ? ' active' : ''}`}><FlagGB /></span>
           </button>
           <a href="mailto:cmedgag@gmail.com" className="navbar__cta" onClick={close}>
-            {lang === 'es' ? 'Contáctame' : 'Contact me'}
+            {es ? 'Contáctame' : 'Contact me'}
           </a>
         </nav>
       </div>
