@@ -55,5 +55,5 @@ npm test
 
 ## Author
 
-**César Medina** — DAW Student at CEI Sevilla  
+**César Medina** — Full-Stack Developer · AI & Data  
 [LinkedIn](https://www.linkedin.com/in/c%C3%A9sar-medina-gago) · [GitHub](https://github.com/CesarMed06)

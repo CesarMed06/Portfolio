@@ -9,14 +9,14 @@ gsap.registerPlugin(ScrollTrigger)
 const content = {
   es: {
     eyebrow: 'Portafolio personal',
-    subtitle: 'Desarrollador Web Full Stack',
-    edu: 'DAW',
+    subtitle: 'Desarrollador Full-Stack · IA & Datos',
+    edu: 'Máster IA y Big Data',
     city: 'Sevilla',
-    desc: <>Apasionado por la <strong>IA</strong>, el <strong>teletrabajo</strong> y el desarrollo web moderno. Con sueños de trabajar en <strong>Suiza</strong> y crear mi propia <strong>agencia de IA</strong>.</>,
+    desc: <>Construyo aplicaciones web de principio a fin: interfaces con <strong>React</strong> y <strong>TypeScript</strong>, APIs en <strong>Node</strong> y <strong>Python</strong>, y modelos de <strong>IA</strong> conectados por API.</>,
     btn1: 'Ver proyectos',
     btn2: 'LinkedIn',
     btn3: 'GitHub',
-    stats: [{ num: '4', label: 'Proyectos reales' }, { num: '2', label: 'Años estudiando' }, { num: '100%', label: 'Dedicación' }],
+    stats: [{ value: 7, label: 'Proyectos publicados' }, { value: 5000, suffix: '+', label: 'Descargas del mod Village Diplomacy' }, { value: 4, label: 'Años formándome' }],
     sliderLabel: 'Proyectos destacados',
     prevLabel: 'Anterior',
     nextLabel: 'Siguiente',
@@ -26,14 +26,14 @@ const content = {
   },
   en: {
     eyebrow: 'Personal portfolio',
-    subtitle: 'Full Stack Web Developer',
-    edu: 'Web App Dev',
+    subtitle: 'Full-Stack Developer · AI & Data',
+    edu: 'AI & Big Data Master',
     city: 'Seville',
-    desc: <>Passionate about <strong>AI</strong>, <strong>remote work</strong> and modern web development. Dreaming of working in <strong>Switzerland</strong> and building my own <strong>AI agency</strong>.</>,
+    desc: <>I build web applications end to end: interfaces with <strong>React</strong> and <strong>TypeScript</strong>, APIs in <strong>Node</strong> and <strong>Python</strong>, and <strong>AI</strong> models wired through APIs.</>,
     btn1: 'View projects',
     btn2: 'LinkedIn',
     btn3: 'GitHub',
-    stats: [{ num: '4', label: 'Real projects' }, { num: '2', label: 'Years studying' }, { num: '100%', label: 'Dedication' }],
+    stats: [{ value: 7, label: 'Published projects' }, { value: 5000, suffix: '+', label: 'Village Diplomacy mod downloads' }, { value: 4, label: 'Years learning' }],
     sliderLabel: 'Featured projects',
     prevLabel: 'Previous',
     nextLabel: 'Next',
@@ -72,17 +72,17 @@ function Home() {
         .from('.slider', { opacity: 0, x: 40, duration: 0.8, ease: 'power3.out' }, '-=0.7')
 
       document.querySelectorAll('.home__stat-num').forEach(el => {
-        const final = el.dataset.num
-        if (!final) return
-        const isPercent = final.endsWith('%')
-        const target = parseFloat(final)
+        const target = Number(el.dataset.num)
+        if (!target) return
+        const locale = el.dataset.locale
+        const suffix = el.dataset.suffix || ''
         const obj = { val: 0 }
         gsap.to(obj, {
           val: target,
           duration: 2.5,
           ease: 'power2.out',
           onUpdate() {
-            el.textContent = isPercent ? Math.round(obj.val) + '%' : Math.round(obj.val)
+            el.textContent = Math.round(obj.val).toLocaleString(locale) + suffix
           },
           scrollTrigger: { trigger: '.home__stats', start: 'top 75%', toggleActions: 'play none play reset' },
         })
@@ -125,7 +125,7 @@ function Home() {
             <Fragment key={s.label}>
               {i > 0 && <div className="home__stat-divider" aria-hidden="true" />}
               <div className="home__stat">
-                <span className="home__stat-num" data-num={s.num}>{s.num}</span>
+                <span className="home__stat-num" data-num={s.value} data-suffix={s.suffix} data-locale={lang === 'es' ? 'es-ES' : 'en-US'}>{s.value.toLocaleString(lang === 'es' ? 'es-ES' : 'en-US') + (s.suffix || '')}</span>
                 <span className="home__stat-label">{s.label}</span>
               </div>
             </Fragment>

@@ -22,6 +22,16 @@ const content = {
 
 const timelineItems = [
   {
+    period: '2026 - Actualidad',
+    type: 'study',
+    title: { es: 'Máster de FP en Inteligencia Artificial y Big Data', en: 'Master in Artificial Intelligence & Big Data' },
+    place: { es: 'CEU FP Sevilla', en: 'CEU FP Seville' },
+    description: {
+      es: 'Especialización de 600 horas en machine learning, tratamiento de datos y despliegue de modelos: Python, Pandas, SQL y visualización de datos.',
+      en: '600-hour specialization in machine learning, data processing and model deployment: Python, Pandas, SQL and data visualization.',
+    },
+  },
+  {
     period: '02/03/2026 - 18/06/2026',
     type: 'work',
     title: { es: 'Desarrollador Web Full Stack · Prácticas', en: 'Full Stack Web Developer · Internship' },
@@ -32,9 +42,9 @@ const timelineItems = [
     },
   },
   {
-    period: '2024 - Actualidad',
+    period: '2024 - 2026',
     type: 'study',
-    title: { es: 'Desarrollo de Aplicaciones Web', en: 'Web Application Development' },
+    title: { es: 'Grado Superior en Desarrollo de Aplicaciones Web', en: 'Higher Degree in Web Application Development' },
     place: { es: 'CEI Sevilla', en: 'CEI Seville' },
   },
   {
