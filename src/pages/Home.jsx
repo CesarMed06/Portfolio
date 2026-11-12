@@ -3,6 +3,8 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
+import ProjectCover from '../components/ProjectCover'
+import { projects, categoryLabels } from '../data/projects'
 import './Home.css'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -43,12 +45,7 @@ const content = {
   },
 }
 
-const projects = [
-  { title: 'ScoutVision', image: '/scoutvision-cover-v2.png', description: { es: 'Plataforma de scouting de fútbol con IA: métricas avanzadas, heatmaps, comparación de jugadores e informes con Llama 3.', en: 'AI-powered football scouting platform: advanced metrics, heatmaps, player comparisons and Llama 3 reports.' }, github: 'https://github.com/CesarMed06/ScoutVision' },
-  { title: 'ShirtFinder', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673327/SHIRTFINDER_achfw6.png', description: { es: 'Buscador de camisetas de fútbol con catálogo filtrable, valoraciones, favoritos, foro y chatbot con IA (Gemini).', en: 'Football shirt finder with filterable catalog, ratings, favorites, forum and AI chatbot (Gemini).' }, github: 'https://github.com/CesarMed06/ShirtFinder' },
-  { title: 'GoalTasker', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/GOALTASKER_wgkuzk.png', description: { es: 'App de gestión de tareas y objetivos relacionados con el fútbol con seguimiento visual.', en: 'Football goal & task management app with visual progress tracking.' }, demo: 'https://goal-tasker.vercel.app/', github: 'https://github.com/CesarMed06/GoalTasker' },
-  { title: 'Bikes for Refugees', image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/BIKES-FOR-REFUGEES_muskbp.png', description: { es: 'Réplica visual de la web de Bikes for Refugees Scotland usando solo HTML y CSS.', en: 'Visual replica of the Bikes for Refugees Scotland website using pure HTML and CSS.' }, demo: 'https://bikes-for-refugees-six.vercel.app/', github: 'https://github.com/CesarMed06/bikes-for-refugees' },
-]
+const featured = projects.filter(p => p.featured)
 
 function Home() {
   const [current, setCurrent] = useState(0)
@@ -57,8 +54,8 @@ function Home() {
   const cardRef = useRef(null)
   const tx = content[lang]
 
-  const prev = () => setCurrent(i => (i === 0 ? projects.length - 1 : i - 1))
-  const next = () => setCurrent(i => (i === projects.length - 1 ? 0 : i + 1))
+  const prev = () => setCurrent(i => (i === 0 ? featured.length - 1 : i - 1))
+  const next = () => setCurrent(i => (i === featured.length - 1 ? 0 : i + 1))
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -96,7 +93,7 @@ function Home() {
     gsap.fromTo(cardRef.current, { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.35, ease: 'power2.out' })
   }, [current])
 
-  const p = projects[current]
+  const p = featured[current]
 
   return (
     <section className="home" ref={ref}>
@@ -137,18 +134,20 @@ function Home() {
         <div className="slider">
           <p className="slider__label">{tx.sliderLabel}</p>
           <div className="slider__card" ref={cardRef} aria-live="polite">
-            <img src={p.image} alt={p.title} className="slider__image" width="640" height="360" loading="eager" />
+            {p.image
+              ? <img src={p.image} alt={p.title} className="slider__image" width="640" height="360" loading="eager" />
+              : <ProjectCover title={p.title} subtitle={categoryLabels[p.category][lang]} />}
             <div className="slider__body">
               <h2 className="slider__title">{p.title}</h2>
-              <p className="slider__description">{p.description[lang]}</p>
+              <p className="slider__description">{p.desc[lang]}</p>
               {p.demo && <a href={p.demo} target="_blank" rel="noreferrer" className="slider__btn slider__btn--primary">{tx.demoBtn}</a>}
-              <a href={p.github} target="_blank" rel="noreferrer" className="slider__btn">{tx.githubBtn}</a>
+              <a href={p.repo} target="_blank" rel="noreferrer" className="slider__btn">{tx.githubBtn}</a>
             </div>
           </div>
           <div className="slider__controls">
             <button className="slider__arrow" onClick={prev} aria-label={tx.prevLabel}>‹</button>
             <div className="slider__dots">
-              {projects.map((_, i) => (
+              {featured.map((_, i) => (
                 <button key={i} className={`slider__dot${i === current ? ' active' : ''}`}
                   onClick={() => setCurrent(i)} aria-label={`${tx.dotLabel} ${i + 1}`} />
               ))}

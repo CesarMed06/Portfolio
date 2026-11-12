@@ -9,16 +9,19 @@ describe('Projects', () => {
         renderProjects()
     })
 
-    it('muestra los 4 títulos de proyectos', () => {
+    it('muestra los 7 títulos de proyectos', () => {
         renderProjects()
-        expect(screen.getByText('ScoutVision')).toBeInTheDocument()
-        expect(screen.getByText('ShirtFinder')).toBeInTheDocument()
-        expect(screen.getByText('GoalTasker')).toBeInTheDocument()
-        expect(screen.getByText('Bikes for Refugees')).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'ScoutVision' })).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'Village Diplomacy' })).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'SailTrim' })).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'NerveLink' })).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'ShirtFinder' })).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'GoalTasker' })).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'Bikes for Refugees' })).toBeInTheDocument()
     })
 
-    it('muestra 4 botones de GitHub', () => {
+    it('muestra 7 botones de GitHub', () => {
         renderProjects()
-        expect(screen.getAllByRole('link', { name: /GitHub/ })).toHaveLength(4)
+        expect(screen.getAllByRole('link', { name: /GitHub/ })).toHaveLength(7)
     })
 })

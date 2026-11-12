@@ -1,0 +1,102 @@
+export const projects = [
+  {
+    slug: 'scoutvision',
+    title: 'ScoutVision',
+    category: 'ai',
+    featured: true,
+    tags: ['React', 'TypeScript', 'FastAPI', 'Python', 'Llama 3'],
+    desc: {
+      es: 'Plataforma de scouting de fútbol sobre datos de StatsBomb: métricas avanzadas, mapas de calor, comparación de jugadores e informes generados con Llama 3.',
+      en: 'Football scouting platform built on StatsBomb data: advanced metrics, heatmaps, player comparison and reports generated with Llama 3.',
+    },
+    metric: { es: 'Proyecto de fin de grado', en: 'Final degree project' },
+    repo: 'https://github.com/CesarMed06/ScoutVision',
+  },
+  {
+    slug: 'village-diplomacy',
+    title: 'Village Diplomacy',
+    category: 'mods',
+    featured: true,
+    tags: ['Java', 'Forge', 'Fabric', 'NeoForge', 'Quilt'],
+    desc: {
+      es: 'Mod de Minecraft de diplomacia con aldeanos: reputación, tratados y eventos. Publicado en CurseForge y Modrinth para 1.20.1 y 1.21.1 con cuatro loaders.',
+      en: 'Minecraft mod about villager diplomacy: reputation, treaties and events. Published on CurseForge and Modrinth for 1.20.1 and 1.21.1 across four loaders.',
+    },
+    metric: { es: '5.000+ descargas', en: '5,000+ downloads' },
+    repo: 'https://github.com/CesarMed06/Village-Diplomacy',
+    demo: 'https://modrinth.com/mod/village-diplomacy',
+    demoLabel: { es: 'Ver mod', en: 'View mod' },
+  },
+  {
+    slug: 'sailtrim',
+    title: 'SailTrim',
+    category: 'ai',
+    featured: true,
+    tags: ['React', 'TypeScript', 'Tailwind', 'PWA'],
+    desc: {
+      es: 'Asistente de trimado de velas: recomienda ajustes según viento y rumbo y explica el porqué de cada cambio. Instalable como PWA.',
+      en: 'Sail trimming assistant: recommends settings from wind and course and explains the reason behind each change. Installable as a PWA.',
+    },
+    metric: { es: 'Demo en vivo', en: 'Live demo' },
+    repo: 'https://github.com/CesarMed06/SailTrim',
+    demo: 'https://sail-trim.vercel.app/',
+  },
+  {
+    slug: 'nervelink',
+    title: 'NerveLink',
+    category: 'mods',
+    tags: ['Java', 'Discord', 'Webhooks'],
+    desc: {
+      es: 'Mod de Minecraft que envía los eventos del servidor a un canal de Discord por webhook: entradas, salidas, muertes y avisos.',
+      en: 'Minecraft mod that pushes server events to a Discord channel through webhooks: joins, leaves, deaths and alerts.',
+    },
+    metric: { es: 'Publicado en CurseForge', en: 'Published on CurseForge' },
+    repo: 'https://github.com/CesarMed06/NerveLink',
+  },
+  {
+    slug: 'shirtfinder',
+    title: 'ShirtFinder',
+    category: 'web',
+    tags: ['React', 'Node.js', 'MongoDB', 'Gemini'],
+    image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673327/SHIRTFINDER_achfw6.png',
+    desc: {
+      es: 'Buscador de camisetas de fútbol con catálogo filtrable, valoraciones, favoritos, foro y chatbot con IA.',
+      en: 'Football shirt finder with filterable catalogue, ratings, favourites, forum and AI chatbot.',
+    },
+    repo: 'https://github.com/CesarMed06/ShirtFinder',
+  },
+  {
+    slug: 'goaltasker',
+    title: 'GoalTasker',
+    category: 'web',
+    tags: ['React', 'CSS', 'LocalStorage'],
+    image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/GOALTASKER_wgkuzk.png',
+    desc: {
+      es: 'App de gestión de tareas y objetivos relacionados con el fútbol, con seguimiento visual del progreso.',
+      en: 'Football goal and task management app with visual progress tracking.',
+    },
+    metric: { es: 'Demo en vivo', en: 'Live demo' },
+    repo: 'https://github.com/CesarMed06/GoalTasker',
+    demo: 'https://goal-tasker.vercel.app/',
+  },
+  {
+    slug: 'bikes-for-refugees',
+    title: 'Bikes for Refugees',
+    category: 'web',
+    tags: ['HTML', 'CSS'],
+    image: 'https://res.cloudinary.com/dwldyiruu/image/upload/v1776673326/BIKES-FOR-REFUGEES_muskbp.png',
+    desc: {
+      es: 'Réplica visual de la web de Bikes for Refugees Scotland usando solo HTML y CSS.',
+      en: 'Visual replica of the Bikes for Refugees Scotland website using plain HTML and CSS.',
+    },
+    metric: { es: 'Demo en vivo', en: 'Live demo' },
+    repo: 'https://github.com/CesarMed06/bikes-for-refugees',
+    demo: 'https://bikes-for-refugees-six.vercel.app/',
+  },
+]
+
+export const categoryLabels = {
+  ai: { es: 'IA y datos', en: 'AI & data' },
+  web: { es: 'Web', en: 'Web' },
+  mods: { es: 'Apps y mods', en: 'Apps & mods' },
+}
