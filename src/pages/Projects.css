@@ -70,5 +70,11 @@
   transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
 .project-card__link:hover { background: var(--color-surface-hover); border-color: rgba(240,90,26,0.2); color: var(--color-primary); transform: translateY(-1px); }
-.project-card__link--primary { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
-.project-card__link--primary:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); color: #fff; box-shadow: 0 6px 20px rgba(240,90,26,0.35); transform: translateY(-2px); }
+.project-card__link--demo { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.project-card__link--demo:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); color: #fff; box-shadow: 0 6px 20px rgba(240,90,26,0.35); transform: translateY(-2px); }
+.project-card__link--modrinth, .project-card__link--modrinth:hover {
+  background: var(--brand-modrinth); border-color: var(--brand-modrinth); color: var(--brand-modrinth-fg);
+}
+.project-card__link--curseforge, .project-card__link--curseforge:hover {
+  background: var(--brand-curseforge); border-color: var(--brand-curseforge); color: var(--brand-curseforge-fg);
+}

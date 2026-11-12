@@ -3,8 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
-import ProjectCover from '../components/ProjectCover'
-import { projects, categoryLabels } from '../data/projects'
+import { projects, brandLabels } from '../data/projects'
 import './Home.css'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -134,13 +133,15 @@ function Home() {
         <div className="slider">
           <p className="slider__label">{tx.sliderLabel}</p>
           <div className="slider__card" ref={cardRef} aria-live="polite">
-            {p.image
-              ? <img src={p.image} alt={p.title} className="slider__image" width="640" height="360" loading="eager" />
-              : <ProjectCover title={p.title} subtitle={categoryLabels[p.category][lang]} />}
+            <img src={p.image} alt={p.alt[lang]} className="slider__image" width="640" height="360" loading="eager" />
             <div className="slider__body">
               <h2 className="slider__title">{p.title}</h2>
               <p className="slider__description">{p.desc[lang]}</p>
-              {p.demo && <a href={p.demo} target="_blank" rel="noreferrer" className="slider__btn slider__btn--primary">{tx.demoBtn}</a>}
+              {p.links[0] && (
+                <a href={p.links[0].href} target="_blank" rel="noreferrer" className={`slider__btn slider__btn--${p.links[0].brand}`}>
+                  {brandLabels[p.links[0].brand][lang]}
+                </a>
+              )}
               <a href={p.repo} target="_blank" rel="noreferrer" className="slider__btn">{tx.githubBtn}</a>
             </div>
           </div>

@@ -1,20 +1,19 @@
 import { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
-import ProjectCover from '../components/ProjectCover'
-import { projects, categoryLabels } from '../data/projects'
+import { projects, categoryLabels, brandLabels } from '../data/projects'
 import './Projects.css'
 
 const content = {
   es: {
     eyebrow: 'Mis proyectos', title: 'Proyectos',
     subtitle: 'Siete proyectos publicados, con enlace al código y a la demo cuando existe. Filtra por tipo para ver lo que te interesa.',
-    github: 'GitHub', demo: 'Demo', all: 'Todos', filtersLabel: 'Filtrar proyectos',
+    github: 'GitHub', all: 'Todos', filtersLabel: 'Filtrar proyectos',
   },
   en: {
     eyebrow: 'My projects', title: 'Projects',
     subtitle: 'Seven shipped projects, with links to the code and to a live demo where there is one. Filter by type to see what interests you.',
-    github: 'GitHub', demo: 'Demo', all: 'All', filtersLabel: 'Filter projects',
+    github: 'GitHub', all: 'All', filtersLabel: 'Filter projects',
   },
 }
 
@@ -60,9 +59,7 @@ function Projects() {
         {shown.map(p => (
           <article className="project-card" key={p.slug}>
             <div className="project-card__img-wrapper">
-              {p.image
-                ? <img src={p.image} alt={p.title} className="project-card__img" width="640" height="360" loading="lazy" />
-                : <ProjectCover title={p.title} subtitle={categoryLabels[p.category][lang]} />}
+              <img src={p.image} alt={p.alt[lang]} className="project-card__img" width="640" height="360" loading="lazy" />
               <div className="project-card__overlay" aria-hidden="true" />
             </div>
             <div className="project-card__body">
@@ -75,11 +72,12 @@ function Projects() {
                 {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
               </div>
               <div className="project-card__actions">
-                {p.demo && (
-                  <a href={p.demo} target="_blank" rel="noreferrer" className="project-card__link project-card__link--primary">
-                    {p.demoLabel ? p.demoLabel[lang] : tx.demo} ↗
+                {p.links.map(l => (
+                  <a key={l.brand} href={l.href} target="_blank" rel="noreferrer"
+                    className={`project-card__link project-card__link--${l.brand}`}>
+                    {brandLabels[l.brand][lang]} ↗
                   </a>
-                )}
+                ))}
                 <a href={p.repo} target="_blank" rel="noreferrer" className="project-card__link">{tx.github} ↗</a>
               </div>
             </div>
