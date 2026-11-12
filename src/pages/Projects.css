@@ -57,19 +57,21 @@
 .tag {
   padding: 0.25rem 0.65rem; border-radius: var(--radius-full);
   font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
-  border: 1px solid var(--color-border-solid); color: var(--color-muted);
-  background: var(--color-surface-alt, #181214);
+  color: var(--tag, var(--color-muted));
+  border: 1px solid color-mix(in srgb, var(--tag, #ffffff) 30%, transparent);
+  background: color-mix(in srgb, var(--tag, #ffffff) 10%, transparent);
   transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
-.tag:hover { color: var(--color-primary); border-color: rgba(240,90,26,0.3); background: var(--color-primary-dim); }
-.project-card__actions { display: flex; gap: 0.75rem; margin-top: 0.25rem; }
+.tag:hover { border-color: color-mix(in srgb, var(--tag, #ffffff) 55%, transparent); background: color-mix(in srgb, var(--tag, #ffffff) 18%, transparent); }
+.project-card__actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.25rem; }
 .project-card__link {
-  display: inline-flex; align-items: center; gap: 0.3rem;
+  display: inline-flex; align-items: center; gap: 0.3rem; white-space: nowrap;
   padding: 0.5rem 1.1rem; border-radius: var(--radius-full);
-  font-size: 0.875rem; font-weight: 600; border: 1px solid var(--color-border-solid);
+  font-size: 0.875rem; font-weight: 600;
+  background: var(--color-surface-alt, #181214); border: 1px solid rgba(255,255,255,0.14);
   transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
-.project-card__link:hover { background: var(--color-surface-hover); border-color: rgba(240,90,26,0.2); color: var(--color-primary); transform: translateY(-1px); }
+.project-card__link:hover { background: var(--color-surface-hover); border-color: rgba(240,90,26,0.3); color: var(--color-primary); transform: translateY(-1px); }
 .project-card__link--demo { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
 .project-card__link--demo:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); color: #fff; box-shadow: 0 6px 20px rgba(240,90,26,0.35); transform: translateY(-2px); }
 .project-card__link--modrinth, .project-card__link--modrinth:hover {

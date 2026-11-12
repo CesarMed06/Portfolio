@@ -129,6 +129,14 @@ export const categoryLabels = {
   mods: { es: 'Apps y mods', en: 'Apps & mods' },
 }
 
+export const tagColors = {
+  React: '#61dafb', TypeScript: '#3178c6', FastAPI: '#009688', Python: '#3776ab',
+  'Llama 3': '#7c5cff', Java: '#e76f00', Forge: '#d9a441', Fabric: '#c9a98a',
+  NeoForge: '#f0932b', Quilt: '#c153d0', Discord: '#5865f2', Webhooks: '#7ea6d9',
+  'Node.js': '#68a063', MongoDB: '#47a248', Gemini: '#4285f4', Tailwind: '#38bdf8',
+  PWA: '#8b5cf6', CSS: '#8fb6e8', HTML: '#e34f26', LocalStorage: '#d6b13d',
+}
+
 export const brandLabels = {
   modrinth: { es: 'Modrinth', en: 'Modrinth' },
   curseforge: { es: 'CurseForge', en: 'CurseForge' },

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
-import { projects, categoryLabels, brandLabels } from '../data/projects'
+import { projects, categoryLabels, brandLabels, tagColors } from '../data/projects'
 import './Projects.css'
 
 const content = {
@@ -69,7 +69,7 @@ function Projects() {
               </div>
               <p className="project-card__description">{p.desc[lang]}</p>
               <div className="project-card__tags">
-                {p.tags.map(t => <span className="tag" key={t}>{t}</span>)}
+                {p.tags.map(t => <span className="tag" key={t} style={{ '--tag': tagColors[t] }}>{t}</span>)}
               </div>
               <div className="project-card__actions">
                 {p.links.map(l => (
