@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
+import useSeo from '../hooks/useSeo'
 import { projects, brandLabels } from '../data/projects'
 import './Home.css'
 gsap.registerPlugin(ScrollTrigger)
@@ -10,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 const content = {
   es: {
     eyebrow: 'Portafolio personal',
+    seo: 'Portfolio de César Medina, desarrollador full-stack especializado en React, Node.js, Python e IA. Sevilla.',
     subtitle: 'Desarrollador Full-Stack · IA & Datos',
     edu: 'Máster IA y Big Data',
     city: 'Sevilla',
@@ -27,6 +29,7 @@ const content = {
   },
   en: {
     eyebrow: 'Personal portfolio',
+    seo: 'Portfolio of César Medina, full-stack developer focused on React, Node.js, Python and AI. Seville.',
     subtitle: 'Full-Stack Developer · AI & Data',
     edu: 'AI & Big Data Master',
     city: 'Seville',
@@ -52,6 +55,7 @@ function Home() {
   const ref = useRef(null)
   const cardRef = useRef(null)
   const tx = content[lang]
+  useSeo('César Medina — Desarrollador Full-Stack · IA & Datos', tx.seo)
 
   const prev = () => setCurrent(i => (i === 0 ? featured.length - 1 : i - 1))
   const next = () => setCurrent(i => (i === featured.length - 1 ? 0 : i + 1))
@@ -96,7 +100,6 @@ function Home() {
 
   return (
     <section className="home" ref={ref}>
-      <title>César Medina</title>
       <div className="home__glow" aria-hidden="true" />
       <div className="home__glow-2" aria-hidden="true" />
 

@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
+import useSeo from '../hooks/useSeo'
 import './Career.css'
 
 const content = {
@@ -71,6 +72,7 @@ function Career() {
   const { lang } = useLang()
   const ref = useRef(null)
   const tx = content[lang]
+  useSeo(`${tx.title} | César Medina`, tx.seo)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -83,8 +85,6 @@ function Career() {
 
   return (
     <section className="career" ref={ref}>
-      <title>{tx.title} | César Medina</title>
-      <meta name="description" content={tx.seo} />
 
       <div className="career__header">
         <p className="career__eyebrow">{tx.eyebrow}</p>

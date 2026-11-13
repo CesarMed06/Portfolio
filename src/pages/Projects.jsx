@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
+import useSeo from '../hooks/useSeo'
 import { projects, categoryLabels, brandLabels, tagColors } from '../data/projects'
 import './Projects.css'
 
@@ -24,6 +25,7 @@ function Projects() {
   const [filter, setFilter] = useState('all')
   const ref = useRef(null)
   const tx = content[lang]
+  useSeo(`${tx.title} | César Medina`, tx.seo)
   const shown = filter === 'all' ? projects : projects.filter(p => p.category === filter)
 
   useEffect(() => {
@@ -37,8 +39,6 @@ function Projects() {
 
   return (
     <section className="projects" ref={ref}>
-      <title>{tx.title} | César Medina</title>
-      <meta name="description" content={tx.seo} />
       <div className="page-header">
         <p className="page-eyebrow">{tx.eyebrow}</p>
         <h1 className="page-title">{tx.title}</h1>
