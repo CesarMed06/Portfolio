@@ -7,11 +7,13 @@ const content = {
   es: {
     eyebrow: 'Mi stack', title: 'Tecnologías',
     intro: 'Herramientas y lenguajes con los que trabajo y aprendo cada día.',
+    seo: 'Stack de César Medina: React, TypeScript, Node.js, Python, MongoDB, Java y las herramientas de IA que usa a diario.',
     levels: { d: 'Diario', f: 'Habitual', l: 'Aprendiendo' },
   },
   en: {
     eyebrow: 'My stack', title: 'Technologies',
     intro: 'Tools and languages I work with and learn every day.',
+    seo: 'César Medina stack: React, TypeScript, Node.js, Python, MongoDB, Java and the AI tooling he uses daily.',
     levels: { d: 'Daily', f: 'Regular', l: 'Learning' },
   },
 }
@@ -69,6 +71,7 @@ function Technologies() {
   return (
     <section className="technologies" ref={ref}>
       <title>{tx.title} | César Medina</title>
+      <meta name="description" content={tx.seo} />
       <div className="technologies__header">
         <p className="technologies__eyebrow">{tx.eyebrow}</p>
         <h1 className="technologies__title">{tx.title}</h1>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-phi-livid-75.vercel.app/sitemap.xml

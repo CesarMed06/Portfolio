@@ -8,11 +8,13 @@ const content = {
   es: {
     eyebrow: 'Mis proyectos', title: 'Proyectos',
     subtitle: 'Siete proyectos publicados, con enlace al código y a la demo cuando existe. Filtra por tipo para ver lo que te interesa.',
+    seo: 'Siete proyectos de desarrollo full-stack, IA y mods de Minecraft, con código en GitHub y demo en vivo cuando existe.',
     github: 'GitHub', all: 'Todos', filtersLabel: 'Filtrar proyectos',
   },
   en: {
     eyebrow: 'My projects', title: 'Projects',
     subtitle: 'Seven shipped projects, with links to the code and to a live demo where there is one. Filter by type to see what interests you.',
+    seo: 'Seven full-stack, AI and Minecraft mod projects, with source code on GitHub and a live demo where there is one.',
     github: 'GitHub', all: 'All', filtersLabel: 'Filter projects',
   },
 }
@@ -36,6 +38,7 @@ function Projects() {
   return (
     <section className="projects" ref={ref}>
       <title>{tx.title} | César Medina</title>
+      <meta name="description" content={tx.seo} />
       <div className="page-header">
         <p className="page-eyebrow">{tx.eyebrow}</p>
         <h1 className="page-title">{tx.title}</h1>

@@ -8,6 +8,7 @@ const content = {
     eyebrow: 'Mi recorrido',
     title: 'Trayectoria',
     intro: 'Formación y experiencia real relacionadas con mi perfil técnico dentro del ámbito informático.',
+    seo: 'Trayectoria de César Medina: máster en IA y Big Data en CEU FP Sevilla, grado en DAW y prácticas de desarrollo web.',
     badgeStudy: 'Formación',
     badgeWork: 'Experiencia',
   },
@@ -15,6 +16,7 @@ const content = {
     eyebrow: 'My journey',
     title: 'Career',
     intro: 'Relevant education and work experience in the IT field.',
+    seo: 'César Medina background: AI and Big Data master\'s at CEU FP Seville, web development degree and developer internships.',
     badgeStudy: 'Education',
     badgeWork: 'Experience',
   },
@@ -82,6 +84,7 @@ function Career() {
   return (
     <section className="career" ref={ref}>
       <title>{tx.title} | César Medina</title>
+      <meta name="description" content={tx.seo} />
 
       <div className="career__header">
         <p className="career__eyebrow">{tx.eyebrow}</p>
