@@ -2,6 +2,8 @@ import '@testing-library/jest-dom'
 
 beforeEach(() => localStorage.setItem('lang', 'es'))
 
+window.scrollTo = vi.fn()
+
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: vi.fn().mockImplementation(query => ({

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
 import useSeo from '../hooks/useSeo'
@@ -61,13 +62,15 @@ function Projects() {
       <div className="projects__grid">
         {shown.map(p => (
           <article className="project-card" key={p.slug}>
-            <div className="project-card__img-wrapper">
+            <Link to={`/proyectos/${p.slug}`} className="project-card__img-wrapper">
               <img src={p.image} alt={p.alt[lang]} className="project-card__img" width="640" height="360" loading="lazy" />
-              <div className="project-card__overlay" aria-hidden="true" />
-            </div>
+              <span className="project-card__overlay" aria-hidden="true" />
+            </Link>
             <div className="project-card__body">
               <div className="project-card__head">
-                <h2 className="project-card__title">{p.title}</h2>
+                <h2 className="project-card__title">
+                  <Link to={`/proyectos/${p.slug}`}>{p.title}</Link>
+                </h2>
                 {p.metric && <span className="project-card__metric">{p.metric[lang]}</span>}
               </div>
               <p className="project-card__description">{p.desc[lang]}</p>

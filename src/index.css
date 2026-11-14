@@ -61,6 +61,16 @@ main {
   padding-bottom: 4rem;
 }
 
+.tag {
+  padding: 0.25rem 0.65rem; border-radius: var(--radius-full);
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--tag, var(--color-muted));
+  border: 1px solid color-mix(in srgb, var(--tag, #ffffff) 30%, transparent);
+  background: color-mix(in srgb, var(--tag, #ffffff) 10%, transparent);
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+.tag:hover { border-color: color-mix(in srgb, var(--tag, #ffffff) 55%, transparent); background: color-mix(in srgb, var(--tag, #ffffff) 18%, transparent); }
+
 :root {
   --brand-modrinth: #1bd96a;
   --brand-modrinth-fg: #08130c;
