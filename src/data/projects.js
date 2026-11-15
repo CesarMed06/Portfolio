@@ -1,5 +1,12 @@
 const t = (es, en) => ({ es, en })
 
+const sized = (url, w) => url.includes('res.cloudinary.com')
+  ? url.replace('/upload/', `/upload/f_auto,q_auto,w_${w}/`)
+  : w === 640 ? url.replace('.webp', '-640.webp') : url
+
+export const cover = url => sized(url, 1280)
+export const coverSet = url => `${sized(url, 640)} 640w, ${sized(url, 1280)} 1280w`
+
 export const projects = [
   {
     slug: 'scoutvision',

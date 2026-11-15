@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
 import useSeo from '../hooks/useSeo'
-import { projects, categoryLabels, brandLabels, tagColors } from '../data/projects'
+import { projects, categoryLabels, brandLabels, tagColors, cover, coverSet } from '../data/projects'
 import './Project.css'
 
 const ui = {
@@ -64,7 +64,7 @@ function Project() {
         </div>
       </div>
 
-      <img className="project__cover" src={p.image} alt={p.alt[lang]} width="1280" height="720" />
+      <img className="project__cover" src={cover(p.image)} srcSet={coverSet(p.image)} sizes="(max-width: 920px) 94vw, 880px" alt={p.alt[lang]} width="1280" height="720" loading="lazy" decoding="async" />
 
       {sections.map(s => (
         <div className="project__section" key={s.title}>

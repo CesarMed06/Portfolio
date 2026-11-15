@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Link } from 'react-router-dom'
 import { useLang } from '../context/LangContext'
 import useSeo from '../hooks/useSeo'
-import { projects, brandLabels } from '../data/projects'
+import { projects, brandLabels, cover, coverSet } from '../data/projects'
 import './Home.css'
 gsap.registerPlugin(ScrollTrigger)
 
@@ -137,7 +137,7 @@ function Home() {
           <p className="slider__label">{tx.sliderLabel}</p>
           <div className="slider__card" ref={cardRef} aria-live="polite">
             <Link to={`/proyectos/${p.slug}`} className="slider__media">
-              <img src={p.image} alt={p.alt[lang]} className="slider__image" width="640" height="360" loading="eager" />
+              <img src={cover(p.image)} srcSet={coverSet(p.image)} sizes="(max-width: 900px) 92vw, 520px" alt={p.alt[lang]} className="slider__image" width="640" height="360" loading="eager" fetchPriority="high" decoding="async" />
             </Link>
             <div className="slider__body">
               <h2 className="slider__title">

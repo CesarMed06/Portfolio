@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { useLang } from '../context/LangContext'
 import useSeo from '../hooks/useSeo'
-import { projects, categoryLabels, brandLabels, tagColors } from '../data/projects'
+import { projects, categoryLabels, brandLabels, tagColors, cover, coverSet } from '../data/projects'
 import './Projects.css'
 
 const content = {
@@ -63,7 +63,7 @@ function Projects() {
         {shown.map(p => (
           <article className="project-card" key={p.slug}>
             <Link to={`/proyectos/${p.slug}`} className="project-card__img-wrapper">
-              <img src={p.image} alt={p.alt[lang]} className="project-card__img" width="640" height="360" loading="lazy" />
+              <img src={cover(p.image)} srcSet={coverSet(p.image)} sizes="(max-width: 720px) 92vw, (max-width: 1100px) 46vw, 360px" alt={p.alt[lang]} className="project-card__img" width="640" height="360" loading="lazy" decoding="async" />
               <span className="project-card__overlay" aria-hidden="true" />
             </Link>
             <div className="project-card__body">
