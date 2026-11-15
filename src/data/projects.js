@@ -1,7 +1,7 @@
 const t = (es, en) => ({ es, en })
 
 const sized = (url, w) => url.includes('res.cloudinary.com')
-  ? url.replace('/upload/', `/upload/f_auto,q_auto,w_${w}/`)
+  ? url.replace('/upload/', `/upload/f_webp,q_auto,w_${w}/`)
   : w === 640 ? url.replace('.webp', '-640.webp') : url
 
 export const cover = url => sized(url, 1280)
