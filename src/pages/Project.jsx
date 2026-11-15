@@ -20,7 +20,6 @@ function Project() {
   useSeo(`${p ? p.title : tx.notFound} | César Medina`, p ? p.desc[lang] : '')
 
   useEffect(() => {
-    window.scrollTo(0, 0)
     const ctx = gsap.context(() => {
       gsap.from('.project__head > *', { opacity: 0, y: 24, duration: 0.5, ease: 'power3.out', stagger: 0.08 })
     }, ref)
