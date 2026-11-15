@@ -78,7 +78,7 @@ function Project() {
         <h2 className="project__section-title">{tx.result}</h2>
         <p className="project__result">
           {p.caseStudy.result[lang]}
-          {demo && <a className="project__result-link" href={demo.href} target="_blank" rel="noreferrer">{demo.href.replace('https://', '').replace(/\/$/, '')}</a>}
+          {demo && <>{' '}<a className="project__result-link" href={demo.href} target="_blank" rel="noreferrer">{demo.href.replace('https://', '').replace(/\/$/, '')}</a></>}
         </p>
       </div>
     </section>
