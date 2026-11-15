@@ -31,6 +31,7 @@
   content: ''; position: absolute; left: 0; top: 0.62em;
   width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary);
 }
+.project__result-link { color: #58a6ff; text-decoration: underline; }
 .project__result {
   background: var(--color-surface); border: 1px solid var(--color-border-solid);
   border-left: 2px solid var(--color-primary); border-radius: var(--radius-md);

@@ -34,11 +34,12 @@ function Project() {
     </section>
   )
 
+  const demo = p.links.find(l => l.brand === 'demo')
   const sections = [
     { title: tx.problem, text: p.caseStudy.problem[lang] },
     { title: tx.work, list: p.caseStudy.work[lang] },
     p.caseStudy.decisions && { title: tx.decisions, list: p.caseStudy.decisions[lang] },
-  ]
+  ].filter(Boolean)
 
   return (
     <section className="project" ref={ref}>
@@ -75,7 +76,10 @@ function Project() {
 
       <div className="project__section">
         <h2 className="project__section-title">{tx.result}</h2>
-        <p className="project__result">{p.caseStudy.result[lang]}</p>
+        <p className="project__result">
+          {p.caseStudy.result[lang]}
+          {demo && <a className="project__result-link" href={demo.href} target="_blank" rel="noreferrer">{demo.href.replace('https://', '').replace(/\/$/, '')}</a>}
+        </p>
       </div>
     </section>
   )

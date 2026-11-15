@@ -136,9 +136,13 @@ function Home() {
         <div className="slider">
           <p className="slider__label">{tx.sliderLabel}</p>
           <div className="slider__card" ref={cardRef} aria-live="polite">
-            <img src={p.image} alt={p.alt[lang]} className="slider__image" width="640" height="360" loading="eager" />
+            <Link to={`/proyectos/${p.slug}`} className="slider__media">
+              <img src={p.image} alt={p.alt[lang]} className="slider__image" width="640" height="360" loading="eager" />
+            </Link>
             <div className="slider__body">
-              <h2 className="slider__title">{p.title}</h2>
+              <h2 className="slider__title">
+                <Link to={`/proyectos/${p.slug}`}>{p.title}</Link>
+              </h2>
               <p className="slider__description">{p.desc[lang]}</p>
               {p.links[0] && (
                 <a href={p.links[0].href} target="_blank" rel="noreferrer" className={`slider__btn slider__btn--${p.links[0].brand}`}>

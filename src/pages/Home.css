@@ -79,9 +79,13 @@
   transition: box-shadow var(--transition), border-color var(--transition);
 }
 .slider__card:hover { border-color: rgba(240,90,26,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.5), var(--shadow-glow); }
-.slider__image { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.slider__media { display: block; }
+.slider__image { width: 100%; aspect-ratio: 16/9; object-fit: cover; transition: opacity var(--transition); }
+.slider__media:hover .slider__image { opacity: 0.85; }
 .slider__body { padding: 1.25rem 1.5rem 1.5rem; }
 .slider__title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+.slider__title a { transition: color var(--transition); }
+.slider__title a:hover { color: var(--color-primary); }
 .slider__description { color: var(--color-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem; }
 .slider__btn {
   display: inline-flex; align-items: center; gap: 0.35rem; white-space: nowrap;
