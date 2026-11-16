@@ -23,9 +23,17 @@ const categories = [
   { es: 'IA y datos', en: 'AI & data', techs: [
     { name: 'Python', lvl: 'f', icon: 'https://cdn.simpleicons.org/python/3776AB' },
     { name: 'Pandas', lvl: 'l', icon: 'https://cdn.simpleicons.org/pandas/150458' },
+    { name: 'NumPy', lvl: 'l', icon: 'https://cdn.simpleicons.org/numpy/4D77CF' },
+    { name: 'scikit-learn', lvl: 'l', icon: 'https://cdn.simpleicons.org/scikitlearn/F7931E' },
     { name: 'Gemini API', lvl: 'l', icon: 'https://cdn.simpleicons.org/googlegemini/8E75B2' },
     { name: 'OpenAI', lvl: 'l', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg' },
     { name: 'Llama 3', lvl: 'l', icon: 'https://cdn.simpleicons.org/meta/0467DF' },
+  ]},
+  { es: 'Big Data', en: 'Big Data', techs: [
+    { name: 'Hadoop', lvl: 'l', icon: 'https://cdn.simpleicons.org/apachehadoop/66CCFF' },
+    { name: 'HBase', lvl: 'l', icon: 'https://cdn.simpleicons.org/apachehbase/E05252' },
+    { name: 'Neo4j', lvl: 'l', icon: 'https://cdn.simpleicons.org/neo4j/4581C3' },
+    { name: 'InfluxDB', lvl: 'l', icon: 'https://cdn.simpleicons.org/influxdb/22ADF6' },
   ]},
   { es: 'Backend', en: 'Backend', techs: [
     { name: 'Node.js', lvl: 'f', icon: 'https://cdn.simpleicons.org/nodedotjs/339933' },
@@ -51,6 +59,7 @@ const categories = [
     { name: 'Git', lvl: 'd', icon: 'https://cdn.simpleicons.org/git/F05032' },
     { name: 'GitHub', lvl: 'd', icon: 'https://cdn.simpleicons.org/github/ffffff' },
     { name: 'VS Code', lvl: 'd', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+    { name: 'Jupyter', lvl: 'l', icon: 'https://cdn.simpleicons.org/jupyter/F37626' },
     { name: 'Figma', lvl: 'f', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
     { name: 'Postman', lvl: 'f', icon: 'https://cdn.simpleicons.org/postman/FF6C37' },
   ]},
